@@ -1,0 +1,3 @@
+<template lang="">
+    <ComingSoonComponent/>
+</template>
