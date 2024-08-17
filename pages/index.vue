@@ -1,8 +1,4 @@
 <script setup lang="ts">
-// @ts-ignore
-import { computed } from 'vue'
-import { ref, onMounted } from 'vue'
-
 import { useMouse, useWindowSize } from '@vueuse/core'
 
 const { x, y } = useMouse()
@@ -18,36 +14,6 @@ const size = computed(() => Math.max(300 - distance.value / 3, 10))
 
 const opacity = computed(() => Math.min(Math.max(size.value / 300, 0.7), 1))
 
-const isModalOpen = ref(false)
-const openModal = () => {
-  isModalOpen.value = true
-}
-
-const closeModal = () => {
-  isModalOpen.value = false
-}
-
-const audio = ref(null)
-
-watch(isModalOpen, (newValue: any) => {
-  if (newValue) {
-    if (audio.value) {
-        // @ts-ignore
-        audio.value.play()
-    }
-  } else {
-    if (audio.value) {
-        // @ts-ignore
-        audio.value.pause()
-    }
-  }
-})
-
-
-onMounted(() => {
-    // @ts-ignore
-    audio.value = document.getElementById('myAudio') as HTMLAudioElement
-})
 </script>
 
 <template >
@@ -61,7 +27,7 @@ onMounted(() => {
                 width: `${size}px`,
                 height: `${size}px`
             }"
-        />
+        ></div>
         <section class="w-screen h-screen flex flex-col justify-center items-center gap-2 bg-gradient-to-t from-[#131417] to-green-500/30 from-90%">
             <h1 class=" font-reddit text-6xl md:text-9xl text-white font-semibold"><span class="text-[#278E46]">G</span>eeks<span class="text-[#278E46]">f</span>or<span class="text-[#278E46]">G</span>eeks</h1>
             <h3 class=" font-reddit text-white text-3xl md:text-5xl">SRMIST KTR Chapter</h3>
@@ -73,13 +39,8 @@ onMounted(() => {
                 <span class="flex w-full ">
                     <div class=" cursor-pointer text-lg relative left-4 top-0 text-red-500">•</div>
                     <div class=" cursor-pointer text-lg relative left-6 top-0 text-yellow-500">•</div>
-                    <div @click="openModal" class=" cursor-pointer text-lg relative left-8 top-0 text-green-500">•</div>
+                    <div class=" cursor-pointer text-lg relative left-8 top-0 text-green-500">•</div>
                 </span>
-                <dialog id="myModal" v-show="isModalOpen"  @close="closeModal" style="" class='p-2 z-[1000] rounded-md bg-[#090909] flex flex-col gap-2  justify-center items-center'>
-                    <NuxtImg src="/binaythevinay.gif" alt="GIF" />
-                    <audio id="myAudio" src="/sunshine.mp3" preload="auto"></audio>
-                    <button autofocus @click="closeModal" class="w-1/2 bg-green-900 shadow-inner shadow-black rounded-md">Close Modal</button>
-                </dialog>
                 <NuxtImg src="/GFG logo.png" class="w-32" />
                 <div>
                     Hey there,<br/>

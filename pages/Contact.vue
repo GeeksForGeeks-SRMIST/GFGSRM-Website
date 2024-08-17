@@ -1,3 +1,7 @@
+<script setup lang="ts">
+
+</script>
+
 <template >
     <main class="w-full h-screen flex flex-col items-center justify-center">
         <form id="contactform" action="https://formsubmit.io/send/suvan.gowrishanker.204@gmail.com" method="POST" class="flex flex-col gap-4 text-white p-6 rounded-md bg-[#0C0C0C] w-1/3 h-fit justify-center items-center shadow-black shadow-lg">
@@ -20,11 +24,3 @@
         </form>
     </main>
 </template>
-<script>
-export default {
-    
-}
-</script>
-<style lang="">
-    
-</style>

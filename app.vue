@@ -13,7 +13,6 @@ useHead({
   <main class="bg-[#131417] min-h-screen overflow-y-auto overflow-x-hidden">
     <NavbarComponent />
     <NuxtPage />
-
     <FooterComponent />
   </main>
 </template>

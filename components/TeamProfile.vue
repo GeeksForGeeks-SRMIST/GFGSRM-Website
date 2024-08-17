@@ -9,8 +9,6 @@
 
 
 <script setup>
-import { defineProps } from 'vue'
-
 const team = defineProps({
   name: String,
   img: String,

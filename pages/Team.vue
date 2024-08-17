@@ -40,13 +40,6 @@ const ChairData = [
    size: true,
    role: 'President' 
 },
-// {
-//    name: 'Prasanjit Panda',
-//    img: 'pj.png',
-//    description: 'hehehahehaheaheheh',
-//    size: true,
-//    role: 'Lead'
-// },
 ];
 
 const HeadsData =[
