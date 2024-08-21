@@ -20,6 +20,6 @@ jobs:
           git config --global credential.helper store
       - name: Add Another Repository
         run: |
-          git remote add deployment-repo git@github.com:GeeksForGeeksSRMIST/gfgsrm-website-deploy.git
+          git remote add deployment-repo https://github.com/GeeksForGeeksSRMIST/gfgsrm-website-deploy.git
       - name: Push to Another Repository
         run: git push deployment-repo ${{ github.ref }}
