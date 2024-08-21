@@ -35,8 +35,6 @@ jobs:
           repository: GeeksForGeeksSRMIST/gfgsrm-website-deploy
           persist-credentials: true
 
-      - run: pnpm install
-
       - run: git config user.name "GitHub Actions"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
