@@ -3,20 +3,21 @@ name: Push to Another Repository
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   push-to-another-repository:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Configure SSH key
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Configure SSH Key
         uses: actions/setup-ssh@v2
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} 
-          ssh-key-name: "pushtogfgdeployment" 
-      - name: Add another repository as remote
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-key-name: "pushtogfgdeployment"
+      - name: Add Another Repository
         run: |
           git remote add another-repo git@github.com:GeeksForGeeksSRMIST/gfgsrm-website-deploy.git
-      - name: Push to another repository
+      - name: Push to Another Repository
         run: git push another-repo ${{ github.ref }}
