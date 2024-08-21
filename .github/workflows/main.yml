@@ -12,12 +12,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
       - name: SSH Setup
-        uses: MrSquaare/ssh-setup-action@v3.1.0            
+        uses: appleboy/ssh-action@v1.0.3            
         with:
           host: github.com
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-private-key-passphrase: ${{ secrets.SSH_PRIVATE_KEY_PASSPHRASE }}
-          ssh-key-name: "pushtogfgdeployment"
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PRIVATE_KEY_PASSPHRASE }}
       - name: Add Another Repository
         run: |
           git remote add another-repo git@github.com:GeeksForGeeksSRMIST/gfgsrm-website-deploy.git
