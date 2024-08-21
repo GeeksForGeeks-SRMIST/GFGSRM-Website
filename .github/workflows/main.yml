@@ -21,5 +21,7 @@ jobs:
       - name: Add Another Repository
         run: |
           git remote add deployment-repo https://github.com/GeeksForGeeksSRMIST/gfgsrm-website-deploy.git
+      - name: Commit to another Repository
+        run: git commit -m "Actions:[deploy] from org repo"
       - name: Push to Another Repository
         run: git push deployment-repo ${{ github.ref }}
