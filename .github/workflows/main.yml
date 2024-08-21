@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
       - name: Configure SSH Key
-        uses: actions/setup-ssh@v2
+        uses: LuisEnMarroquin/setup-ssh-action@v2.0.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh-private-key-passphrase: ${{ secrets.SSH_PRIVATE_KEY_PASSPHRASE }}
