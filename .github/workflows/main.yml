@@ -6,22 +6,53 @@ on:
       - main
 
 jobs:
-  push-to-another-repository:
+  copy-files:
     runs-on: ubuntu-latest
     env:
+      REPOSITORY: ${{ secrets.REMOTE_REPOSTITORY }}
       GITHUB_USERNAME: ${{ secrets.REPO_GITHUB_USERNAME }}
       GITHUB_PASSWORD: ${{ secrets.REPO_GITHUB_EMAIL }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Configure Git Credentials
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with: 
+          path: 'src'
+          ref: 'main'
+          persist-credentials: false
+          
+      - name: Checkout remote
+        uses: actions/checkout@v3
+        with:
+          path: 'dest'
+          ref: 'main'
+          repository: ${{ secrets.REMOTE_REPOSITORY }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Copy common files to new repo
+        shell: bash
+        run: |
+          cp -rvT src/* dest/
+
+      - name: Check for New Files
+        id: commit_newFiles
+        shell: bash
+        working-directory: dest
+        run: |
+          git add -A
+          git status --porcelain | wc -l
+          if [[ $(git status --porcelain | wc -l) -gt 0]];
+            echo "::set-output name=hasNewFiles::true"
+          else
+            echo "::set-output name=hasNewFiles::false"
+          fi
+      - name: Push New Files
+        if: ${{ steps.commit_newFiles.outputs.hasNewFiles == 'true' }}
+        shell: bash
+        working-directory: dest
         run: |
           git config --global user.name "${{ secrets.REPO_GITHUB_USERNAME }}"
           git config --global user.email "${{ secrets.REPO_GITHUB_EMAIL }}"
-          git config --global credential.helper store
-      - name: Add Another Repository
-        run: |
-          git remote add deployment-repo https://github.com/GeeksForGeeksSRMIST/gfgsrm-website-deploy.git
-      - name: show ref
-        run: echo ${{ github.ref }}
-      - name: Push to Another Repository
-        run: git push deployment-repo ${{ github.ref }}
+          git commit -m "Actions: [deploy] from org repo for ${{ github.sha }}"
+          git push
+     
