@@ -32,7 +32,7 @@ jobs:
       - name: Copy common files to new repo
         shell: bash
         run: |
-          cp -rvT src/* dest/
+          cp -rvT src dest
 
       - name: Check for New Files
         id: commit_newFiles
