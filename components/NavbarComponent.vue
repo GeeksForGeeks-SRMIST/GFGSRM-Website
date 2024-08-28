@@ -4,7 +4,8 @@
         <div class="text-white list-none flex flex-row gap-8 w-1/3 justify-evenly">
             <NuxtLink to="/">Home</NuxtLink>
             <NuxtLink to="/gallery">Gallery</NuxtLink>
-            <NuxtLink to="/recruitments">Recruitment</NuxtLink>
+            <!-- <NuxtLink to="/recruitments">Recruitment</NuxtLink> -->
+            <NuxtLink to="https://recruitments.gfgsrmist.tech/">Recruitment</NuxtLink>
         </div>
         <NuxtImg src="/GFG logo2.png" class="w-12" />
         <ul class="text-white list-none flex flex-row gap-8 w-1/3 justify-evenly">

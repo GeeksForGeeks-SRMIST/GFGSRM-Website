@@ -40,6 +40,13 @@ const ChairData = [
    size: true,
    role: 'President' 
 },
+// {
+//    name: 'Prasanjit Panda',
+//    img: 'pj.png',
+//    description: 'hehehahehaheaheheh',
+//    size: true,
+//    role: 'Lead'
+// },
 ];
 
 const HeadsData =[
@@ -52,15 +59,21 @@ const HeadsData =[
 },
 {
    name: 'Ishan Roy',
-   img: 'ison.png',
+   img: 'ishan.png',
    description: 'Consectetur adipiscing elit',
    size: false
 },
+// {
+//    name: 'Mayurathvajaa',
+//    img: 'mairu.png',
+//    description: 'Consectetur adipiscing elit',
+//    size: false 
+// },
 {
-   name: 'Mayurathvajaa',
-   img: 'mairu.png',
+   name: 'Dheekshita',
+   img: 'dheekshita.png',
    description: 'Consectetur adipiscing elit',
-   size: false
+   size: false 
 },
 ]
 
@@ -75,6 +88,18 @@ const LeadsData = [
 {
    name: 'Inigo Jeevan',
    img: 'jibun.png',
+   description: 'Consectetur adipiscing elit',
+   size: false
+},
+{
+   name: 'Aakash Patel',
+   img: 'jibun.png',
+   description: 'Consectetur adipiscing elit',
+   size: false
+},
+{
+   name: 'Madhumita',
+   img: 'madhumita.png',
    description: 'Consectetur adipiscing elit',
    size: false
 },
