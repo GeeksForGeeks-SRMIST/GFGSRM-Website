@@ -1,11 +1,8 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: "2024-10-24",
+  modules: ["@nuxt/eslint", "@nuxtjs/tailwindcss"],
+  ssr: false,
   devtools: { enabled: true },
-  css: [
-    '@/assets/css/main.css',
-  ],
-  modules: ['@nuxtjs/tailwindcss', "@nuxt/image"],
-  app: {
-    pageTransition: { name: 'slide-right', mode: 'out-in' }
-  },
-})
+  css: ["./app/app.css"],
+  srcDir: "app",
+});

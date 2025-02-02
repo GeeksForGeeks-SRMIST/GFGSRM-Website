@@ -15,16 +15,16 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v3
-        with: 
-          path: 'src'
-          ref: 'main'
+        with:
+          path: "src"
+          ref: "main"
           persist-credentials: false
-          
+
       - name: Checkout remote
         uses: actions/checkout@v3
         with:
-          path: 'dest'
-          ref: 'main'
+          path: "dest"
+          ref: "main"
           repository: ${{ secrets.REMOTE_REPOSITORY }}
           fetch-depth: 0
           persist-credentials: true
@@ -55,4 +55,3 @@ jobs:
           git config --global user.email "${{ secrets.REPO_GITHUB_EMAIL }}"
           git commit -m "Actions: [deploy] from org repo for ${{ github.sha }}"
           git push
-     
